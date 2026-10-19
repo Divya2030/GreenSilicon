@@ -5,6 +5,7 @@ window.SITE = {
   repo: "https://github.com/Divya2030/GreenSilicon",
   video: "",      // demo video URL (YouTube/Vimeo)
   demo: "",       // hosted prototype URL, if any
+  site: "https://divya2030.github.io/GreenSilicon/",
   devpost: "",    // Devpost submission URL
   author: "Divya Kohli",
   affiliation: "Third-year PhD student, University of California, Santa Cruz (UCSC), CA, USA",

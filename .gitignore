@@ -14,3 +14,5 @@ backend/data/
 shared/deployment.json
 .DS_Store
 demo/video/out/
+demo/video/audio/
+submission/

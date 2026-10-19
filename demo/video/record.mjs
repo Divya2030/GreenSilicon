@@ -12,7 +12,6 @@ import fs from "node:fs";
 import path from "node:path";
 
 const APP = process.env.APP_URL || "http://localhost:8000";
-const SITE = "file://" + path.resolve("../../site");
 const CARDS = "file://" + path.resolve("cards");
 const OUT = path.resolve("out");
 const W = 1600, H = 900; // recorded viewport; upscaled to 1080p so UI text reads larger
@@ -75,7 +74,7 @@ async function overlay() {
 }
 async function go(url) {
   await page.goto(url, { waitUntil: "networkidle" });
-  await page.mouse.move(W / 2, H / 2);
+  if (!url.includes("/cards/")) await page.mouse.move(W / 2, H / 2); // no cursor on title/end cards
   await overlay();
 }
 // Voice-over clips from tts.py (optional). Each caption is held exactly as long as it is spoken.
@@ -186,13 +185,6 @@ await go(APP + "/verify/4");
 await chapter("9 · Trust no one");
 await page.getByText("read from chain").waitFor({ timeout: 30000 });
 await say("Anyone can scan a chip's QR code and verify it straight from the blockchain, without trusting our servers.");
-
-await go(`${SITE}/analysis.html`);
-await chapter("10 · Full analysis");
-await say("Fourteen analyses, a sourced industry landscape and interactive impact calculators are on the project website.", 4);
-await scrollTo(1800);
-await scrollTo(5200);
-await sleep(1);
 
 await go(`${CARDS}/end.html`);
 await chapter("");

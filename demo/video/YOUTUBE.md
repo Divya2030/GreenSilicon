@@ -44,7 +44,7 @@ Primary track: Sustainable Supply Chains (also addresses Carbon Markets, Renewab
 By Divya Kohli, third-year PhD student, University of California, Santa Cruz (UCSC), CA, USA
 
 Code (open source, MIT): https://github.com/Divya2030/GreenSilicon
-Website and full analysis: https://divya2030.github.io/GreenSilicon/
+Website and full analysis: <your site URL>
 
 Chapters
 0:00 Intro

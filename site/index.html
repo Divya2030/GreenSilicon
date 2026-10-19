@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GreenSilicon</title>
+<meta name="description" content="GreenSilicon: AI-audited blockchain passports that follow every chip from the fab to the AI jobs it runs, verifying carbon, water and circularity with nothing counted twice." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='20' rx='4' fill='%23059669'/%3E%3Cpath d='M12 19c3 0 6-2 8-7-5 .6-9 3-8 7z' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+<main>
+  <div class="hero">
+    <div class="hero-grid"></div>
+    <div class="wrap" style="position:relative">
+      <span class="eyebrow">IEEE ClimateChain 2026 · Sustainable Supply Chains · AI + Blockchain</span>
+      <h1>Every chip carries its climate story, from the fab to the AI jobs it runs.</h1>
+      <p class="lead">GreenSilicon gives each semiconductor production lot a tamper-proof digital product passport. Suppliers sign their carbon, water and energy disclosures, an AI auditor checks them against physics and IoT meters, and the same passport follows the chip into the data center, where every AI job is certified for its energy, water and share of the chip's manufacturing footprint.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="analysis.html">See the analysis →</a>
+        <a class="btn btn-ghost" href="story.html">Why I built this</a>
+        <a class="btn btn-ghost" data-link="video" href="#">▶ Demo video</a>
+        <a class="btn btn-ghost" data-link="repo" href="#">Source code</a>
+      </div>
+      <div class="grid g4" style="margin-top:40px" id="heroStats"></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="kicker">Hackathon tracks</div>
+      <h2>Primary track: Sustainable Supply Chains. Also addresses all three other tracks.</h2>
+      <p class="sub">Submitted under one primary track as the rules require. Because a chip's footprint spans its supply chain, carbon markets, energy use and environmental data, GreenSilicon also delivers "Build" items from the other three tracks.</p>
+      <div class="grid g2" id="tracks"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="kicker">The problem</div>
+      <h2>AI is growing on chips nobody can verify the footprint of</h2>
+      <p class="sub">Making a chip is one of the most energy-, gas- and water-intensive manufacturing processes on Earth, and running it in a data center keeps consuming electricity and water every hour. Buyers report these emissions using averages and unverifiable PDFs.</p>
+      <div class="grid g3">
+        <div class="card"><div class="icon" data-icon="factory"></div><h3>Opaque manufacturing</h3><p>Each new node needs more electricity, more fluorinated process gases and more ultrapure water per cm². In our model a 3 nm die emits <b id="p-node"></b> the carbon of the same die at 28 nm.</p></div>
+        <div class="card"><div class="icon" data-icon="puzzle"></div><h3>Fragmented supply chains</h3><p>An AI accelerator combines chiplets from several fabs, HBM from a memory maker, packaging in another country and air freight. Nobody sees the whole footprint, and carbon is easily counted twice or not at all.</p></div>
+        <div class="card"><div class="icon" data-icon="droplet"></div><h3>Hidden water and energy in AI</h3><p>Every AI question and training run draws power and cooling water. In Phoenix, <b id="p-water"></b> of an AI job's water is consumed at the power plant, not the data center, so it is invisible in most reports.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="kicker">The solution</div>
+      <h2>One passport per chip lot, verified at every step</h2>
+      <p class="sub">Five smart contracts, a physics-based carbon model built on peer-reviewed data, and a hybrid AI auditor make every number traceable and every claim checkable.</p>
+      <div class="flow">
+        <div class="step"><b>Design</b><span>Estimate embodied carbon, energy and water before tape-out; mint a passport that commits to the design.</span></div>
+        <div class="step"><b>Fab & package</b><span>Suppliers sign EIP-712 disclosures; Claude extracts the figures from their PDFs.</span></div>
+        <div class="step"><b>AI + IoT audit</b><span>Physics, device-signed meters, an anomaly model and Claude vote. Greenwashing gets rejected on-chain.</span></div>
+        <div class="step"><b>Compose</b><span>Chiplet carbon rolls into the product exactly once; credits are burned against lots.</span></div>
+        <div class="step"><b>Data center</b><span>Each AI job gets a certificate with energy, water and amortised chip carbon; schedulers pick clean hours and sites.</span></div>
+        <div class="step"><b>Reuse & recycle</b><span>Identical work is never computed twice; recyclers earn tokens for recovered metals.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="kicker">Results from the working prototype</div>
+      <h2>What the system found in a realistic AI-accelerator supply chain</h2>
+      <p class="sub">The seeded scenario is a 2.5D AI accelerator: two 5 nm compute chiplets (Taiwan), a 7 nm I/O die (Arizona), four HBM3 stacks (Korea), packaged in Malaysia, then deployed across six data centers. Companies are fictional; physics and data are real.</p>
+      <div class="grid g3" id="results"></div>
+      <div class="btns" style="margin-top:24px"><a class="btn btn-outline" href="analysis.html">All 14 analyses →</a><a class="btn btn-outline" href="impact.html">Impact at scale →</a></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid g2" style="align-items:center">
+      <div>
+        <div class="kicker">Built to be trusted</div>
+        <h2>Engineered like infrastructure, not a slide deck</h2>
+        <p class="sub" style="margin-bottom:16px">Every claim on this site comes from the running prototype. Its correctness is tested, its contracts are statically analysed, and anyone can verify a chip straight from the blockchain without trusting our servers.</p>
+        <div class="btns"><a class="btn btn-outline" href="technology.html">Architecture & security →</a><a class="btn btn-outline" href="judges.html">Evaluation guide for judges →</a></div>
+      </div>
+      <div class="grid g2" id="quality"></div>
+    </div>
+  </section>
+</main>
+<script>
+  const D = window.GS, A = D.accelerator, C = D.compute;
+  const n28 = D.nodes.find((n) => n.node === "28nm"), n3 = D.nodes.find((n) => n.node === "3nm");
+  document.getElementById("p-node").textContent = `${(n3.carbon_g / n28.carbon_g).toFixed(1)}×`;
+  const phx = D.cooling["PHX-1"].options[0];
+  document.getElementById("p-water").textContent = F.pct(phx.offsite_m3 / (phx.onsite_m3 + phx.offsite_m3));
+
+  const stat = (v, l, d, cls = "") => `<div class="stat"><div class="l">${l}</div><div class="v ${cls}">${v}</div>${d ? `<div class="d">${d}</div>` : ""}</div>`;
+  document.getElementById("heroStats").innerHTML = [
+    stat(`${(D.schedule_example.savings.carbon_pct).toFixed(0)}%`, "less CO₂e for an LLM training run", "by moving it to a cleaner site and hour"),
+    stat(F.carbon(A.passport.carbonAtRiskG), "of greenwashed carbon caught", "a fab claimed 31% of its plausible footprint"),
+    stat(`${Math.round((1 - D.inference.multiplier) * 100)}%`, "less energy per AI question", "caching, routing, speculative decoding"),
+    stat(`${D.quality.contractTests + D.quality.backendTests}`, "automated tests passing", `${D.quality.contracts.length} smart contracts · 0 unresolved static-analysis issues`),
+  ].join("");
+
+  const gw = D.greenwashing.audit;
+  const r = (t, big, body) => `<div class="card"><div class="kicker" style="font-size:12px">${t}</div><div class="stat" style="border:0;box-shadow:none;padding:4px 0 0;background:none"><div class="v">${big}</div></div><p>${body}</p></div>`;
+  const recs = A.recommendations;
+  document.getElementById("results").innerHTML = [
+    r("Hotspot found", F.carbon(A.estimate.per_unit.breakdown_g.interposer), `The 1,200 mm² silicon interposer is the largest single source in each accelerator. An organic RDL interposer cuts the unit footprint ${((1 - A.rdl_per_unit_g / A.estimate.per_unit.carbon_g) * 100).toFixed(0)}%.`),
+    r("Greenwashing rejected", `${gw.verdict} · ${Math.round(gw.score)}/100`, `A fab claimed 70% renewables without certificates and 99.9% gas abatement. Its own on-chain meter measured ${F.pct(gw.telemetry.abatement_avg, 1)}.`),
+    r("Lifecycle split", `${F.pct(A.usePhase.projection.embodied_share, 1)} / ${F.pct(1 - A.usePhase.projection.embodied_share, 1)}`, "Manufacturing vs. lifetime data-center operation for the accelerator lot. Operations dominate, so scheduling and efficiency matter as much as cleaner fabs."),
+    r("Compute reuse", F.carbon(C.totals.avoided_g), `Avoided on-chain by reusing an identical result and continuing training from a checkpoint instead of starting over. ${C.totals.reused} reuse, ${C.totals.incremental} incremental run.`),
+    r("Best lever", `−${recs[0].saving_pct.toFixed(0)}%`, `${recs[0].lever}. ${recs.length} quantified levers are ranked automatically for every design.`),
+    r("Seawater cooling", `−${D.cooling["PHX-1"].options.find((o) => o.key === "seawater_hx").freshwater_saved_pct.toFixed(0)}% freshwater`, "What a Hamina-style seawater heat exchanger would save, but only on the coast. Phoenix is inland, so the model flags it as infeasible and shows clean power as the bigger water lever."),
+  ].join("");
+
+  const TR = [
+    ["Sustainable Supply Chains", true, "Increase transparency and accountability in supply chains", [["Product lifecycle tracking", "lot passports from design to data center to recycling"], ["Digital product passports", "ERC-721 per production lot, chiplet → package"], ["Recycling traceability", "end-of-life records with recovered-material evidence"], ["Circular economy incentives", "CIRC tokens; compute reuse credited on-chain"]]],
+    ["Carbon Markets & Emissions Transparency", false, "Prevent double counting, simplify verification", [["Carbon credit verification", "serials tokenised once, retirements bound to a lot"], ["Smart contracts vs double counting", "unit-capped allocation, burn on retire, offsets ≤ footprint"], ["Real-time emissions tracking", "per-stage attestations and per-AI-job certificates"]]],
+    ["Renewable Energy & Energy Trading", false, "Trustworthy renewable claims, efficient energy use", [["Renewable certificate tracking", "claims count only with I-REC / GO / PPA evidence"], ["Clean-energy-aware operations", "AI jobs scheduled to the cleanest grids and hours"]]],
+    ["Climate Data & Environmental Monitoring", false, "Make fragmented environmental data verifiable", [["IoT environmental monitoring", "device-signed fab meters anchored on-chain"], ["Climate data verification", "hybrid AI auditor and trustless public verifier"], ["Tools for research and insights", "Design Lab, Scope 3 report, cooling and inference analyses"]]],
+  ];
+  document.getElementById("tracks").innerHTML = TR.map(([n, primary, ch, items]) => `<div class="card" style="${primary ? "border-color:var(--brand);background:var(--brand-soft)" : ""}">
+    <span class="pill ${primary ? "ok" : ""}">${primary ? "★ Primary track" : "Also addresses"}</span>
+    <h3 style="margin-top:10px">${n}</h3><p class="small">Challenge: ${ch}</p>
+    <ul class="check" style="margin-top:8px">${items.map(([b, how]) => `<li><b>${b}</b><br><span class="small muted">${how}</span></li>`).join("")}</ul></div>`).join("");
+
+  document.getElementById("quality").innerHTML = [
+    stat(D.quality.contractTests, "smart-contract tests", "forgery, replay, double counting, reuse"),
+    stat(D.quality.backendTests, "backend tests", "physics, auditor, data-center models"),
+    stat(D.quality.e2eFlows, "end-to-end browser flows", "incl. a prompt-injection attack"),
+    stat(D.quality.slither.unresolved, "unresolved Slither findings", `${D.quality.slither.fixed} fixed, ${D.quality.slither.remaining} triaged`),
+  ].join("");
+</script>
+</body>
+</html>

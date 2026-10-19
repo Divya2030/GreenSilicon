@@ -1,0 +1,21 @@
+Northbay Foundry - Lot Environmental Disclosure
+===============================================
+
+Supplier: Northbay Foundry Co., Ltd.
+Facility: Fab 7, Hsinchu Science Park
+Location: Hsinchu, Taiwan
+Stage: Wafer Fab
+Reporting period: Lot N5-24118, Sep 2026
+Process node: 5nm (N5-class FinFET)
+Good dies shipped: 2,000
+Wafers processed: 24
+Electricity attributed to lot: 45.2 MWh
+Renewable electricity share: 25 %
+Fluorinated process gas emissions (after abatement): 3,664 kg CO2e
+Abatement efficiency: 99 %
+Water withdrawal: 182.2 m3
+Die yield: 64 %
+Total product carbon footprint (cradle-to-gate): 35,539 kg CO2e
+Certifications: ISO 14064-1 verified inventory; T-REC renewable energy certificates (Taiwan); ISO 14001
+
+Allocation: fab-level metered electricity and gas allocated by wafer-layer count. Third-party verified by an accredited body.

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GreenSilicon Technology</title>
+<meta name="description" content="Architecture, smart contracts, AI auditor, security review, standards alignment and data sources behind GreenSilicon." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='20' rx='4' fill='%23059669'/%3E%3Cpath d='M12 19c3 0 6-2 8-7-5 .6-9 3-8 7z' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+<style>
+  .arch { width: 100%; height: auto; }
+  .arch .box { fill: var(--surface); stroke: var(--border); stroke-width: 1.5; }
+  .arch .chain { fill: var(--brand-soft); stroke: var(--brand); stroke-width: 1.5; }
+  .arch .ai { fill: color-mix(in srgb, var(--series-7) 12%, var(--surface)); stroke: var(--series-7); stroke-width: 1.5; }
+  .arch text { fill: var(--text); font: 600 13px Inter, sans-serif; }
+  .arch text.s { fill: var(--muted); font: 400 11px Inter, sans-serif; }
+  .arch text.h { fill: var(--muted); font: 700 11px Inter, sans-serif; letter-spacing: .08em; }
+  .arch path { stroke: var(--axis); stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+</style>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="kicker">Technology</div>
+      <h1>How GreenSilicon works under the hood</h1>
+      <p>Five smart contracts hold the truth. A Python backend runs the carbon, telemetry and data-center models and the hybrid AI auditor. A React app and a trust-minimised public verifier sit on top.</p>
+      <nav class="toc"><a href="#arch">Architecture</a><a href="#contracts">Smart contracts</a><a href="#ai">AI auditor</a><a href="#security">Security & quality</a><a href="#standards">Standards</a><a href="#data">Data sources & assumptions</a><a href="#stack">Tech stack</a></nav>
+    </div>
+  </div>
+
+  <section id="arch"><div class="wrap">
+    <div class="kicker">Architecture</div>
+    <h2>From supplier PDFs and fab meters to verifiable AI-job certificates</h2>
+    <div class="card" style="overflow-x:auto">
+      <svg class="arch" viewBox="0 0 1040 430" role="img" aria-label="GreenSilicon architecture diagram">
+        <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--axis);stroke:none" /></marker></defs>
+        <text class="h" x="20" y="24">INPUTS</text>
+        <rect class="box" x="20" y="40" width="200" height="56" rx="10" /><text x="36" y="64">Supplier reports (PDF)</text><text class="s" x="36" y="82">fabs · OSAT · logistics · recyclers</text>
+        <rect class="box" x="20" y="112" width="200" height="56" rx="10" /><text x="36" y="136">Fab IoT meters</text><text class="s" x="36" y="154">power · abatement · water, own keys</text>
+        <rect class="box" x="20" y="184" width="200" height="56" rx="10" /><text x="36" y="208">Chip design spec</text><text class="s" x="36" y="226">node · area · package · memory</text>
+        <rect class="box" x="20" y="256" width="200" height="56" rx="10" /><text x="36" y="280">Data centers & AI jobs</text><text class="s" x="36" y="298">PUE · WUE · EWIF · grid</text>
+        <rect class="box" x="20" y="328" width="200" height="56" rx="10" /><text x="36" y="352">Supplier wallets</text><text class="s" x="36" y="370">EIP-712 signatures (MetaMask)</text>
+
+        <text class="h" x="290" y="24">INTELLIGENCE (off-chain)</text>
+        <rect class="ai" x="290" y="40" width="230" height="74" rx="10" /><text x="306" y="64">Claude extraction</text><text class="s" x="306" y="82">structured outputs · untrusted-data</text><text class="s" x="306" y="98">content-addressed cache</text>
+        <rect class="ai" x="290" y="130" width="230" height="92" rx="10" /><text x="306" y="154">Hybrid AI auditor</text><text class="s" x="306" y="172">physics (ACT · imec · 3D-Carbon)</text><text class="s" x="306" y="188">energy floor · IoT cross-check</text><text class="s" x="306" y="204">IsolationForest · Claude review</text>
+        <rect class="box" x="290" y="238" width="230" height="74" rx="10" /><text x="306" y="262">Data-center models</text><text class="s" x="306" y="280">scheduler · cooling · inference</text><text class="s" x="306" y="296">refresh payback · SCI</text>
+        <rect class="box" x="290" y="328" width="230" height="56" rx="10" /><text x="306" y="352">Relayer (gas-free)</text><text class="s" x="306" y="370">salted Merkle roots · evidence hashes</text>
+
+        <text class="h" x="590" y="24">SMART CONTRACTS (EVM)</text>
+        <rect class="chain" x="590" y="40" width="240" height="66" rx="10" /><text x="606" y="64">GreenSiliconPassport</text><text class="s" x="606" y="82">ERC-721 lots · stages · AI verdicts</text><text class="s" x="606" y="98">composition · trust · selective disclosure</text>
+        <rect class="chain" x="590" y="118" width="240" height="50" rx="10" /><text x="606" y="140">TelemetryRegistry</text><text class="s" x="606" y="157">device-signed, contiguous batches</text>
+        <rect class="chain" x="590" y="180" width="240" height="66" rx="10" /><text x="606" y="204">ComputeLedger</text><text class="s" x="606" y="222">ERC-721 AI-job certificates</text><text class="s" x="606" y="238">embodied amortisation · reuse</text>
+        <rect class="chain" x="590" y="258" width="240" height="50" rx="10" /><text x="606" y="280">CarbonCreditRegistry</text><text class="s" x="606" y="297">ERC-1155 · burn on retire</text>
+        <rect class="chain" x="590" y="320" width="240" height="50" rx="10" /><text x="606" y="342">CircularityToken</text><text class="s" x="606" y="359">ERC-20 recycling rewards</text>
+
+        <text class="h" x="890" y="24">USERS</text>
+        <rect class="box" x="880" y="40" width="145" height="56" rx="10" /><text x="894" y="64">Web app</text><text class="s" x="894" y="82">10 pages</text>
+        <rect class="box" x="880" y="112" width="145" height="56" rx="10" /><text x="894" y="136">Public verifier</text><text class="s" x="894" y="154">browser → chain</text>
+        <rect class="box" x="880" y="184" width="145" height="56" rx="10" /><text x="894" y="208">Scope 3 report</text><text class="s" x="894" y="226">CSV · DPP credential</text>
+        <rect class="box" x="880" y="256" width="145" height="56" rx="10" /><text x="894" y="280">AI customers</text><text class="s" x="894" y="298">compute certificates</text>
+
+        <path d="M220 68 H290" /><path d="M220 140 C255 140 255 170 290 170" /><path d="M220 212 C255 212 255 190 290 190" /><path d="M220 284 H290" /><path d="M220 356 H290" />
+        <path d="M520 77 C555 77 555 350 520 356" style="opacity:.5" />
+        <path d="M520 356 C555 356 555 80 590 75" /><path d="M520 176 C555 176 555 95 590 92" /><path d="M220 140 C400 120 450 140 590 142" style="opacity:.6" /><path d="M520 275 C555 275 555 213 590 213" />
+        <path d="M830 73 H880" /><path d="M830 140 C855 140 855 140 880 140" /><path d="M830 213 C855 213 855 212 880 212" /><path d="M830 213 C860 230 860 284 880 284" />
+      </svg>
+    </div>
+  </div></section>
+
+  <section id="contracts"><div class="wrap">
+    <div class="kicker">Smart contracts</div>
+    <h2>Five contracts, each enforcing one guarantee</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Contract</th><th>Standard</th><th>What it guarantees</th></tr>
+      <tr><td><b>GreenSiliconPassport</b></td><td>ERC-721, EIP-712, AccessControl, MerkleProof</td><td>Only role-holding suppliers can attest their own stage, in lifecycle order, with replay protection. Component carbon is allocated once (unit-capped). Offsets can never exceed the footprint. Any single confidential field can be proven against a salted Merkle root. On-chain supplier trust score.</td></tr>
+      <tr><td><b>TelemetryRegistry</b></td><td>EIP-712, MerkleProof</td><td>Meters sign their own batches; batches must be contiguous in time, so outages cannot be skipped or backfilled; any reading is provable.</td></tr>
+      <tr><td><b>ComputeLedger</b></td><td>ERC-721</td><td>AI-job certificates with embodied carbon amortised from the chip passport on-chain, capped at rated life; each unit deployed once; reuse and incremental savings derived from prior certificates, so they cannot be inflated.</td></tr>
+      <tr><td><b>CarbonCreditRegistry</b></td><td>ERC-1155</td><td>A registry serial can be tokenised once; retirement burns credits and binds them to a specific chip lot.</td></tr>
+      <tr><td><b>CircularityToken</b></td><td>ERC-20</td><td>Minted only by the passport contract when a recycler records verified recovery (1 CIRC = 1 kg).</td></tr>
+    </table></div>
+  </div></section>
+
+  <section id="ai"><div class="wrap">
+    <div class="kicker">AI</div>
+    <h2>AI that is useful, and kept honest</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Extraction</h3><p>Claude reads supplier PDFs and returns a schema-validated disclosure with evidence quotes and gaps. Documents are treated as untrusted data.</p></div>
+      <div class="card"><h3>Hybrid audit</h3><p>Physics, the electricity floor, IoT meters and an IsolationForest score each record. Claude writes findings, but the final verdict is the stricter of rules and LLM, so it cannot be talked out of a physics violation.</p></div>
+      <div class="card"><h3>Efficient by design</h3><p>A content-addressed cache means identical documents, audits or questions never reach the model twice. Server-side refusal fallbacks keep the pipeline robust, and offline fallbacks keep the demo working.</p></div>
+    </div>
+  </div></section>
+
+  <section id="security"><div class="wrap">
+    <div class="kicker">Security & quality</div>
+    <h2>Tested, analysed and documented</h2>
+    <div class="grid g4" id="qual"></div>
+    <div class="table-wrap" style="margin-top:18px"><table>
+      <tr><th>Threat</th><th>Control</th></tr>
+      <tr><td>Forged or replayed supplier record</td><td>EIP-712 recovery + role check per stage, nonces, deadlines</td></tr>
+      <tr><td>Greenwashing / prompt injection</td><td>Physics + IoT + ML + LLM; verdict = max severity; injection test rejected</td></tr>
+      <tr><td>Hiding an abatement outage</td><td>Device keys, time-contiguous batches, reading proofs</td></tr>
+      <tr><td>Double counting (BOM, credits, AI jobs)</td><td>Unit-capped allocation, unique serials, burn on retire, lifetime caps</td></tr>
+      <tr><td>Leaking confidential process data</td><td>Only salted roots on-chain; selective disclosure</td></tr>
+      <tr><td>Dishonest operator / compromised server</td><td>Browser-side verifier with embedded ABI flags API/chain mismatches; wallet signing keeps keys off the server</td></tr>
+    </table></div>
+  </div></section>
+
+  <section id="standards"><div class="wrap">
+    <div class="kicker">Standards alignment</div>
+    <h2>Built on the frameworks industry already uses</h2>
+    <div class="tag-row">
+      <span class="pill">GHG Protocol (Product, Scope 2 quality, Scope 3 Cat. 1)</span><span class="pill">ISO 14067</span><span class="pill">ISO 14064-1</span><span class="pill">ISO 14083 / GLEC</span>
+      <span class="pill">EU ESPR Digital Product Passport</span><span class="pill">W3C Verifiable Credentials</span><span class="pill">Green Software Foundation SCI (ISO/IEC 21031)</span>
+      <span class="pill">The Green Grid PUE / WUE</span><span class="pill">WRI Aqueduct water stress</span><span class="pill">RBA / RMI responsible minerals</span><span class="pill">R2v3 / e-Stewards</span>
+      <span class="pill">ERC-721 · ERC-1155 · ERC-20 · EIP-712</span>
+    </div>
+  </div></section>
+
+  <section id="data"><div class="wrap">
+    <div class="kicker">Data sources & assumptions</div>
+    <h2>Every parameter is traceable</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Data</th><th>Source</th></tr>
+      <tr><td>Fab energy, process gases and materials per cm², 28–3 nm</td><td>Gupta et al., ACT, ISCA 2022 (<a href="https://github.com/facebookresearch/ACT">facebookresearch/ACT</a>, CC BY-NC 4.0)</td></tr>
+      <tr><td>Independent carbon-per-area cross-check</td><td>imec.netzero public data</td></tr>
+      <tr><td>Yield, packaging, bonding, interposer, RDL</td><td>Zhao et al., 3D-Carbon, DAC 2024 (<a href="https://github.com/UMN-ZhaoLab/3D-Carbon">UMN-ZhaoLab/3D-Carbon</a>)</td></tr>
+      <tr><td>Grid carbon intensity</td><td>Ember 2023 (via ACT)</td></tr>
+      <tr><td>Fab water per cm²</td><td>ITRS 300 mm goals scaled by imec's ×2.3 UPW trend</td></tr>
+      <tr><td>Data-center PUE, WUE, EWIF</td><td>Li, Yang, Islam, Ren, "Making AI Less 'Thirsty'" (<a href="https://arxiv.org/abs/2304.03271">arXiv:2304.03271</a>, Table 1)</td></tr>
+      <tr><td>Energy per AI query</td><td>Epoch AI (2025); Google (<a href="https://arxiv.org/abs/2508.15734">arXiv:2508.15734</a>)</td></tr>
+      <tr><td>Seawater cooling</td><td>Google Hamina (since 2011, PUE 1.09); Microsoft Project Natick (PUE 1.07)</td></tr>
+      <tr><td>Speculative decoding, quantization effects</td><td>arXiv:2602.09113; arXiv:2601.22362</td></tr>
+    </table></div>
+    <p class="small muted" style="margin-top:12px"><b>Documented assumptions</b> (configurable): HBM stacking overhead (likely underestimates memory; see the <a href="landscape.html">landscape</a> page), test energy per unit, recycling factor, node area scaling, accelerator power (0.79 kW incl. host) and rated life, hourly grid and WUE shapes, water-scarcity weights 1–4, dry-cooler PUE penalty, seawater heat-exchange PUE, inference lever sizes. Supplier companies, meters and AI jobs in the demo are simulated.</p>
+  </div></section>
+
+  <section id="stack"><div class="wrap">
+    <div class="kicker">Tech stack</div>
+    <div class="tag-row">
+      <span class="pill">Solidity 0.8.24</span><span class="pill">OpenZeppelin 5</span><span class="pill">Hardhat</span><span class="pill">Slither</span><span class="pill">Python 3.12</span><span class="pill">FastAPI</span><span class="pill">web3.py</span>
+      <span class="pill">Anthropic Claude (structured outputs)</span><span class="pill">scikit-learn</span><span class="pill">React + TypeScript</span><span class="pill">Tailwind</span><span class="pill">Recharts</span><span class="pill">ethers.js</span><span class="pill">Playwright</span>
+    </div>
+  </div></section>
+</main>
+<script>
+const Q = window.GS.quality;
+const st = (l, v, d) => `<div class="stat"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${d}</div></div>`;
+document.getElementById("qual").innerHTML = st("Smart-contract tests", Q.contractTests, "Hardhat") + st("Backend tests", Q.backendTests, "pytest") + st("End-to-end flows", Q.e2eFlows, "Playwright, incl. attacks") + st("Slither findings unresolved", Q.slither.unresolved, `${Q.slither.fixed} fixed · ${Q.slither.remaining} triaged`);
+</script>
+</body>
+</html>

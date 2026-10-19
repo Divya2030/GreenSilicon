@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Why I Built GreenSilicon</title>
+<meta name="description" content="A chip designer's reason for building GreenSilicon, and the commitment to keep contributing to climate action beyond the hackathon." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='20' rx='4' fill='%23059669'/%3E%3Cpath d='M12 19c3 0 6-2 8-7-5 .6-9 3-8 7z' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="kicker">Why I built this</div>
+      <h1>I design chips. I want the chips we build to stop costing the planet more than they have to.</h1>
+      <p>GreenSilicon started from a question I could not answer in my own field: when a new AI accelerator ships, what did it really cost in carbon and water to make, and what will it cost every hour it runs?</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap grid g2" style="align-items:start">
+      <div>
+        <div class="card" style="margin-bottom:22px;display:flex;gap:16px;align-items:center">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800;font-size:22px;flex:none">DK</div>
+          <div><h3 style="margin:0">Divya Kohli</h3><p style="margin:2px 0 0">Third-year PhD student · University of California, Santa Cruz (UCSC), CA, USA<br><span class="small muted">Background in chip design · Team GreenSilicon</span></p></div>
+        </div>
+        <div class="kicker">The view from the design side</div>
+        <h2>Chip designers optimise power, performance and area. Carbon is missing from that list.</h2>
+        <p class="sub">My background is in chip design. Every design review asks how fast, how much power, how much area. Almost none asks how much carbon, how much water. Yet the decisions made there, such as the process node, a monolithic die or chiplets, a silicon or organic interposer, and which fab, lock in most of a chip's manufacturing footprint before a single wafer is processed.</p>
+        <p class="sub">At the same time, AI is growing every day. Every model trained and every question answered runs on accelerators that consume electricity and cooling water around the clock. I kept asking myself whether I was helping build the problem, and whether my skills could help solve it.</p>
+      </div>
+      <blockquote>
+        "I don't just want to take part in a hackathon. I want to contribute something the semiconductor and AI industries can actually use to measure, verify and reduce their impact, and keep working on it afterwards."
+        <footer>Divya Kohli, third-year PhD student at the University of California, Santa Cruz, creator of GreenSilicon</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="kicker">Why this approach</div>
+      <h2>Why a chip passport, and why AI plus blockchain</h2>
+      <div class="grid g3">
+        <div class="card"><div class="icon" data-icon="ruler"></div><h3>Carbon as a design metric</h3><p>The Design Lab puts embodied carbon, energy and water next to performance, power and area, using published fab data (ACT, imec.netzero, 3D-Carbon), so trade-offs are visible at the stage where they are cheapest to change.</p></div>
+        <div class="card"><div class="icon" data-icon="link"></div><h3>Blockchain where trust breaks down</h3><p>A chip's footprint is split across many companies that do not fully trust each other. Signed, append-only records, unit-capped carbon allocation and burned offsets make double counting impossible by construction, not by policy.</p></div>
+        <div class="card"><div class="icon" data-icon="brain"></div><h3>AI where people can't scale</h3><p>No sustainability team can read every supplier PDF and check it against physics. AI extracts the figures, an anomaly model and Claude review them, and device-signed meters provide independent evidence, while the physics model keeps the AI honest.</p></div>
+      </div>
+      <div class="takeaway">The idea grew as I built it: from a passport for how a chip is made, to a passport that follows the chip into the data center, so the carbon and water of every AI job, including the share of the chip's own manufacturing, is measured and reduced.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="kicker">Beyond the hackathon</div>
+      <h2>How I intend to keep contributing</h2>
+      <p class="sub">The hackathon is the start. These are the concrete next steps I am committing to, and the organisations whose work GreenSilicon builds on and aims to support.</p>
+      <div class="grid g2">
+        <div class="card">
+          <h3>Open by default</h3>
+          <ul class="check">
+            <li>All code is open source (MIT), so fabs, OSATs, universities and NGOs can reuse it freely.</li>
+            <li>The carbon and water models cite every parameter, so researchers can check, correct and extend them.</li>
+            <li class="todo">Publish the per-chip passport schema as an open specification and invite comments.</li>
+            <li class="todo">Contribute model improvements and test cases back to open carbon tools for hardware.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Align with the people already doing the work</h3>
+          <ul class="check">
+            <li><b>SEMI Semiconductor Climate Consortium</b>: GreenSilicon's supplier data model targets the Scope 3 transparency the consortium is pushing for.</li>
+            <li><b>Green Software Foundation</b>: each AI-job certificate reports a Software Carbon Intensity (SCI) score: (E × I + M) / R.</li>
+            <li><b>The Green Grid / WRI Aqueduct</b>: data-center PUE and WUE metrics, and water-scarcity-aware decisions.</li>
+            <li><b>IEEE Blockchain & UN COP31 goals</b>: trustworthy, decentralised climate data infrastructure.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="grid g3" style="margin-top:16px">
+        <div class="card"><h3>Pilot with real data</h3><p>Validate the models with a university fab or cleanroom and real metered data, replacing the simulated suppliers and meters.</p></div>
+        <div class="card"><h3>Mentor and teach</h3><p>Share carbon-aware chip design with other students and engineers, so sustainability becomes part of the standard design review.</p></div>
+        <div class="card"><h3>Open collaboration</h3><p>Invite climate organisations, carbon registries and hardware teams to stress-test the passport and help turn it into a shared standard.</p></div>
+      </div>
+      <div class="btns" style="margin-top:24px"><a class="btn btn-outline" href="analysis.html">See what the prototype found →</a><a class="btn btn-outline" data-link="repo" href="#">Get the code</a></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

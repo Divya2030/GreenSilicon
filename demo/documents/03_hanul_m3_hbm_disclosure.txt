@@ -1,0 +1,14 @@
+Hanul Memory - HBM3 Lot Product Carbon Footprint
+================================================
+
+Supplier: Hanul Memory Co.
+Facility: Fab M3, Icheon
+Location: Icheon, South Korea
+Stage: Wafer Fab
+Reporting period: Lot H3-2609-11
+Product: HBM3 24GB 8-high stack
+Units: 4,000
+Electricity attributed to lot: 9.8 MWh
+Water withdrawal: 61.0 m3
+Total product carbon footprint: 7,535 kg CO2e
+Certifications: ISO 14067 product carbon footprint; ISO 14001

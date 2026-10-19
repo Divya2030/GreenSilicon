@@ -1,0 +1,15 @@
+anthropic==1.15.0
+eth-abi==6.0.0
+eth-account==0.14.0
+eth-utils==6.0.0
+fastapi==0.146.0
+httpx==0.28.1
+numpy==2.5.4
+pydantic==2.14.1
+pypdf==6.21.1
+pytest==9.1.1
+python-multipart==0.0.32
+PyYAML==6.0.3
+scikit-learn==1.9.1
+uvicorn[standard]==0.54.0
+web3==8.0.0

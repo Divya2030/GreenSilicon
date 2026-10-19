@@ -1,0 +1,13 @@
+GreenFreight Logistics - Air Waybill Emissions Statement
+========================================================
+
+Supplier: GreenFreight Logistics
+Facility: PEN -> PDX air freight
+Location: Malaysia -> USA
+Stage: Logistics
+Reporting period: AWB 176-55120418
+Transport mode: air
+Distance: 13,600 km
+Shipment mass: 1,850 kg
+Total: 15,400 kg CO2e
+Certifications: GLEC Framework v3; ISO 14083

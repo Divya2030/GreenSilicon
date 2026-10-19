@@ -1,0 +1,12 @@
+Aurora Silicon - Design Phase Emissions (amortised)
+===================================================
+
+Supplier: Aurora Silicon Inc.
+Facility: Cloud EDA cluster (us-west)
+Location: Oregon, USA
+Stage: Design
+Reporting period: NX-7 tape-out, amortised to first 1,000 units
+Electricity: 62.0 MWh
+Renewable: 60 %
+Total: 10,700 kg CO2e
+Certifications: Cloud provider PPA (RE100 member); Green-e RECs

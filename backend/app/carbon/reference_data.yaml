@@ -1,0 +1,83 @@
+# GreenSilicon reference data for embodied-carbon estimation.
+#
+# Every parameter cites its public source. Values are reproduced for
+# non-commercial research use with attribution:
+#  [ACT]   Gupta et al., "ACT: Designing Sustainable Computer Systems with an
+#          Architectural Carbon Modeling Tool", ISCA 2022. Data from
+#          github.com/facebookresearch/ACT (CC BY-NC 4.0), Table 1.
+#  [IMEC]  imec.netzero public carbon-per-area figures, as packaged in ACT
+#          (models/logic/imec-netzero-cpa.yaml), https://netzero.imec-int.com/
+#  [3DC]   Zhao et al., "3D-Carbon: An Analytical Carbon Modeling Tool for 3D
+#          and 2.5D Integrated Circuits", DAC 2024, github.com/UMN-ZhaoLab/3D-Carbon
+#  [ITRS]  ITRS ESH roadmap water goals for 300 mm fabs (5.5-7.8 L/cm2), and
+#          imec "The environmental footprint of logic CMOS technologies"
+#          (ultrapure water per wafer x2.3 from N28 to N2).
+#  [EMBER] Ember / lowcarbonpower grid carbon intensity, 2023, as packaged in ACT.
+
+nodes:
+  # epa: fab electricity per cm2 (kWh) [ACT]; gpa95/gpa99: process-gas
+  # emissions per cm2 at 95% / 99% abatement (g CO2e) [ACT]; mpa: raw
+  # materials per cm2 (g CO2e) [ACT]; d0: defect density per mm2 and alpha:
+  # clustering for the negative-binomial yield model [3DC]; imec_cpa: total
+  # carbon per cm2 (kg CO2e) [IMEC]; water: fab water per cm2 (L), derived
+  # from [ITRS] baseline at N28 scaled by imec's x2.3 N28->N2 trend.
+  "28nm": { epa: 0.90,  gpa95: 175, gpa99: 100, mpa: 500, d0: 0.0007,  alpha: 10, imec_cpa: 0.91, water: 6.0 }
+  "20nm": { epa: 1.20,  gpa95: 190, gpa99: 110, mpa: 500, d0: 0.00075, alpha: 10, imec_cpa: 0.91, water: 6.6 }
+  "14nm": { epa: 1.20,  gpa95: 200, gpa99: 125, mpa: 500, d0: 0.0010,  alpha: 10, imec_cpa: 0.97, water: 7.4 }
+  "10nm": { epa: 1.475, gpa95: 240, gpa99: 150, mpa: 500, d0: 0.0010,  alpha: 10, imec_cpa: 1.09, water: 8.5 }
+  "7nm":  { epa: 2.15,  gpa95: 350, gpa99: 200, mpa: 500, d0: 0.0010,  alpha: 10, imec_cpa: 1.44, water: 9.9 }
+  "5nm":  { epa: 2.75,  gpa95: 430, gpa99: 225, mpa: 500, d0: 0.0011,  alpha: 10, imec_cpa: 1.54, water: 11.3 }
+  "3nm":  { epa: 3.25,  gpa95: 470, gpa99: 275, mpa: 500, d0: 0.0020,  alpha: 10, imec_cpa: 1.75, water: 12.6 }
+
+# Silicon interposer for 2.5D packaging (CoWoS-style) [3DC]
+interposer: { epa: 1.20, gpa99: 100, mpa: 250, d0: 0.0006, alpha: 6, water: 6.0 }
+
+# Grid carbon intensity, g CO2e / kWh [EMBER via ACT, 2023]
+grid:
+  taiwan: 642
+  south_korea: 402
+  japan: 446
+  usa: 369
+  europe: 300
+  singapore: 471
+  india: 713
+  australia: 549
+  brazil: 98
+  iceland: 7.3
+  world: 481
+
+# Lifecycle carbon intensity of generation sources, g CO2e / kWh [ACT]
+sources:
+  coal: 820
+  gas: 490
+  biomass: 230
+  solar: 41
+  geothermal: 38
+  hydropower: 24
+  nuclear: 12
+  wind: 11
+
+# Organic RDL interposer: substrate electricity per mm2 (kWh) and
+# negative-binomial yield params [d0 per mm2, alpha] [3DC]
+rdl: { epa: 0.011, yield: [0.0005, 3] }
+
+# Packaging electricity, kWh per mm2 of package area [3DC]
+packaging:
+  FCBGA: 0.00135
+  WLCSP: 0.01111
+  TSSOP: 0.0125
+# Bonding electricity per mm2 per bonded layer (kWh) and yield [3DC]
+bonding:
+  microbump: { epa: 0.0009, yield: 0.96 }   # TCB die-to-wafer bumping
+  hybrid:    { epa: 0.0028, yield: 0.95 }   # direct bond interconnect, D2W
+  tsv:       { epa: 0.0025, yield: 0.97 }
+
+# DRAM embodied carbon, g CO2e per GB [ACT Table 1]
+dram:
+  ddr4_10nm: 65
+  lpddr4: 48
+  hbm3: 65          # assumption: HBM modelled with the 1x-nm DDR4 figure plus stacking overhead below
+hbm_stack_overhead: 1.15  # TSV + stacking energy multiplier (assumption, documented)
+
+# Wafer geometry
+wafer_diameter_mm: 300

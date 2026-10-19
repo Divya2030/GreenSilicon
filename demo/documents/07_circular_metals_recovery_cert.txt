@@ -1,0 +1,12 @@
+Circular Metals Recovery - Certificate of Recycling
+===================================================
+
+Supplier: Circular Metals Recovery B.V.
+Facility: Hydrometallurgy line 2, Hoboken
+Location: Netherlands
+Stage: End of Life
+Reporting period: Batch CMR-26-1187
+Units: 1,200 decommissioned EV-28 modules
+Recovered materials: 2,640 g (Au 36 g, Cu 2,310 g, Sn 210 g, Pd 4 g, Ta 80 g)
+Total: 3.2 kg CO2e
+Certifications: R2v3; e-Stewards; RMI conflict-free smelter list

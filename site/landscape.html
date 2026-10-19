@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Industry Landscape</title>
+<meta name="description" content="Who in the semiconductor and AI industry is already working on chip carbon and water, what they have committed to, and the gap GreenSilicon fills. Every claim is sourced." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='20' rx='4' fill='%23059669'/%3E%3Cpath d='M12 19c3 0 6-2 8-7-5 .6-9 3-8 7z' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="kicker">Industry landscape · research as of October 2026</div>
+      <h1>Who is already working on this, and what is still missing</h1>
+      <p>The industry is moving: most leading chipmakers have net-zero targets and a consortium is building shared standards. But per-chip, verified, water-inclusive data that follows a chip into the data center does not exist yet. Every claim below links to its source; anything we could not verify is marked as such.</p>
+    </div>
+  </div>
+
+  <section><div class="wrap">
+    <div class="kicker">The scale of the problem</div>
+    <h2>Chip manufacturing and AI computing are both growing fast</h2>
+    <div class="grid g4">
+      <div class="stat"><div class="l">Semiconductor manufacturing emissions, 2030 forecast</div><div class="v">277 Mt</div><div class="d">CO₂e/yr, +8.3 %/yr from 2024 (<a href="https://www.techinsights.com/blog/global-semiconductor-carbon-emissions-forecast-2025-2030">TechInsights</a>)</div></div>
+      <div class="stat"><div class="l">Emissions from making AI GPU accelerators</div><div class="v">16×</div><div class="d">1.21 → 19.2 Mt CO₂e, 2024 → 2030 (<a href="https://www.techinsights.com/blog/ai-gpu-growth-directly-impacts-carbon-emission-growth-through-2030">TechInsights</a>)</div></div>
+      <div class="stat"><div class="l">Data-center electricity</div><div class="v">415 → 945 TWh</div><div class="d">2024 → 2030 (<a href="https://www.datacenterdynamics.com/en/news/iea-data-center-energy-consumption-set-to-double-by-2030-to-945twh/">IEA Energy and AI, 2025</a>)</div></div>
+      <div class="stat"><div class="l">Semiconductor industry water withdrawal</div><div class="v">~260 B gal</div><div class="d">per year, projected 390–455 B by 2030 (<a href="https://www.alliancebernstein.com/corporate/en/insights/investment-insights/can-semiconductor-makers-navigate-rising-water-risks.html">AllianceBernstein</a>)</div></div>
+    </div>
+    <p class="small muted" style="margin-top:12px">imec estimates IC manufacturing at ~185 Mt CO₂e/yr (<a href="https://www.imec-int.com/en/articles/how-can-we-reduce-environmental-impact-chip-manufacturing">imec</a>).</p>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Industry coordination</div>
+    <h2>The SEMI Semiconductor Climate Consortium</h2>
+    <div class="grid g3">
+      <div class="stat"><div class="l">Founding members (Nov 2022)</div><div class="v">65</div><div class="d"><a href="https://www.prnewswire.com/in/news-releases/semi-announces-semiconductor-climate-consortium-founding-members-301664158.html">Source</a></div></div>
+      <div class="stat"><div class="l">Members (latest verified, Mar 2024)</div><div class="v">90+</div><div class="d"><a href="https://www.semiconductor-digest.com/semiconductor-climate-consortium-elects-new-governing-council-and-expands-membership/">Source</a>; later counts unverified</div></div>
+      <div class="stat"><div class="l">Shared goal</div><div class="v">Net zero 2050</div><div class="d">Plus annual Scope 1–3 reporting; a value-chain product-carbon-footprint exchange framework targeted <b>by 2028</b></div></div>
+    </div>
+    <p class="sub" style="margin-top:16px">2025 work includes standardised data collection, abatement, renewables and Scope 3 Category 1 and 11 guidance (<a href="https://www.eejournal.com/industry_news/semiconductor-climate-consortium-announces-key-2025-initiatives-to-accelerate-decarbonization-and-promote-transparency-in-semiconductor-sustainability/">2025 initiatives</a>, <a href="https://www.semi.org/en/blogs/semi-news/semiconductor-climate-consortium-releases-industry-guidelines-for-scope-3-reporting">Scope 3 guidelines</a>).</p>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Company commitments</div>
+    <h2>15 leading semiconductor companies: what they have committed to</h2>
+    <div class="grid g4" id="counts" style="margin-bottom:18px"></div>
+    <div class="table-wrap"><table id="t-co"></table></div>
+    <p class="small muted" style="margin-top:10px">"Unverified" means we could not confirm it from a public source, not that the company does not do it. Commitments are targets, not results.</p>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">AI accelerators specifically</div>
+    <h2>Only a handful of AI accelerators have a published carbon footprint</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h3>What has been disclosed</h3>
+        <ul class="check">
+          <li><b>NVIDIA HGX H100</b> (8-GPU baseboard): <b>1,312 kg CO₂e</b> cradle-to-gate, ISO 14067, HBM 42 % of the total. <b>Excludes use phase.</b> <a href="https://images.nvidia.com/aem-dam/Solutions/documents/HGX-H100-PCF-Summary.pdf">PCF summary</a></li>
+          <li><b>NVIDIA HGX B200</b>: 24 % lower embodied carbon per exaflop than H100. <a href="https://developer.nvidia.com/blog/nvidia-hgx-b200-reduces-embodied-carbon-emissions-intensity">NVIDIA blog</a></li>
+          <li><b>Google TPUs</b>: five generations; operational electricity is over 70 % of lifetime emissions. <a href="https://arxiv.org/abs/2502.01671">Schneider, Patterson et al., 2025</a></li>
+          <li class="todo"><b>AMD MI300X, NVIDIA GB200/GB300</b>: no per-product footprint found (unverified).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>How GreenSilicon's model compares</h3>
+        <p>GreenSilicon's ACT-based estimate for its NX-7 accelerator is <b id="nx7"></b> per accelerator, the same order of magnitude as NVIDIA's H100 board (~164 kg per GPU including board components). The lifecycle split agrees with Google's TPU study: operation dominates.</p>
+        <div class="takeaway"><b>A limitation we found and disclose:</b> NVIDIA attributes 42 % of the H100 board's footprint to HBM memory. Our model, using ACT's DRAM factor, gives HBM about <b id="hbm"></b>, so it likely <b>underestimates memory</b>. Calibrating the memory model against published PCFs is first on our roadmap.</div>
+      </div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Standards and data-sharing efforts</div>
+    <h2>Building blocks already exist, but none of them covers the whole chain</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Initiative</th><th>What it does</th><th>What's missing for chips</th></tr>
+      <tr><td><a href="https://www.imec-int.com/en/expertise/cmos-advanced/sustainable-semiconductor-technologies-and-systems-ssts">imec SSTS / imec.netzero</a></td><td>Virtual-fab models of carbon, water and materials per node (since 2021).</td><td>Industry averages, not a specific fab or lot.</td></tr>
+      <tr><td><a href="https://wbcsd.github.io/tr/data-exchange-protocol/latest/">WBCSD PACT</a></td><td>REST API standard for exchanging product carbon footprints (v3, 2025).</td><td>Semiconductor adoption unverified; no verification layer.</td></tr>
+      <tr><td><a href="https://blog.izm.fraunhofer.de/project-semiconductor-x/">Catena-X / Semiconductor-X</a></td><td>€30 M project, 20+ partners led by Intel Germany and Fraunhofer: bottom-up PCF calculation for chips.</td><td>Regional pilot; data-center use phase out of scope.</td></tr>
+      <tr><td><a href="https://inemi.org/iNEMI/iNEMI/Projects/In-Progress/Electronic_Product_Dataset_Project.aspx">iNEMI dataset project</a></td><td>Standardised life-cycle datasets for ICT components (results due 2026–27).</td><td>Datasets, not live per-lot records.</td></tr>
+      <tr><td><a href="https://esprregistry.com/espr-timeline/">EU ESPR digital product passports</a></td><td>Legal framework for product passports; EU registry live July 2026.</td><td>Electronics expected around 2028–29 (secondary sources).</td></tr>
+      <tr><td><a href="https://csrc.nist.gov/presentations/2025/semiconductor-traceability">SEMI T25 / NIST traceability</a></td><td>Blockchain-based chip traceability and anti-counterfeit provenance.</td><td>Provenance only: no carbon or water.</td></tr>
+      <tr><td><a href="https://greensoftware.foundation/standards/sci-ai/">Green Software Foundation SCI / SCI for AI</a></td><td>ISO/IEC 21031:2024 method for software carbon intensity, incl. embodied hardware.</td><td>A method; needs chip-level embodied data as input.</td></tr>
+    </table></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">The AI and data-center side</div>
+    <h2>Hyperscalers are disclosing more, but at fleet level</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Per-query disclosures</h3><p>Google: 0.24 Wh, 0.03 gCO₂e and 0.26 mL water per median Gemini prompt (<a href="https://arxiv.org/abs/2508.15734">2025</a>), with its scope questioned by researchers (<a href="https://particle.news/story/google-details-geminis-perprompt-energy-carbon-and-water-use-as-researchers-question-scope">coverage</a>). Mistral Large 2: 1.14 gCO₂e and 45 mL per 400-token reply (<a href="https://the-decoder.com/mistral-ai-publishes-the-first-comprehensive-life-cycle-assessment-of-a-large-language-model/">LCA</a>).</p></div>
+      <div class="card"><h3>Water pledges</h3><p>Microsoft reports reaching water-positive in 2025 (<a href="https://www.esgtoday.com/microsoft-hits-water-positive-target-5-years-ahead-of-2030-goal/">ESG Today</a>); AWS and Meta target 2030 (<a href="https://sustainability.aboutamazon.com/natural-resources/water">AWS</a>, <a href="https://about.fb.com/news/2025/12/advancing-water-stewardship-in-metas-data-center-communities/">Meta</a>). These are company-wide replenishment totals, not tied to hardware or jobs.</p></div>
+      <div class="card"><h3>Zero-water cooling</h3><p>Microsoft's designs since August 2024 use closed-loop chip-level cooling with no evaporation, avoiding over 125 million litres per data center per year (<a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/12/09/sustainable-by-design-next-generation-datacenters-consume-zero-water-for-cooling/">Microsoft</a>). Google Hamina has used seawater since 2011.</p></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">The gap</div>
+    <h2>Six things nobody does end to end yet, and how GreenSilicon addresses each</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Gap in today's landscape</th><th>Evidence</th><th>GreenSilicon's answer</th></tr>
+      <tr><td><b>No per-chip passport</b></td><td>The SCC targets a PCF exchange framework by 2028; EU electronics passports around 2028–29; existing PCFs cover a family or a board.</td><td>An ERC-721 passport per production lot, composable from chiplet to package (<a href="analysis.html#a2">analysis 2</a>).</td></tr>
+      <tr><td><b>Closed, unstructured data</b></td><td>Some PCFs sit behind logins; disclosures come in "diverse and unstructured formats" (<a href="https://arxiv.org/abs/2507.01145">CarbonClarity, 2025</a>).</td><td>Claude turns supplier PDFs into a structured, signed schema; selective disclosure keeps secrets private.</td></tr>
+      <tr><td><b>Averages, not measurements</b></td><td>Published PCFs rely on imec.netzero and ecoinvent averages for fab emissions.</td><td>Device-signed IoT meters anchored on-chain provide lot-level evidence (<a href="analysis.html#a6">analysis 6</a>).</td></tr>
+      <tr><td><b>Claims are rarely verified</b></td><td>One-off consultant reviews; traceability standards cover provenance, not carbon.</td><td>A continuous hybrid AI audit with on-chain verdicts and supplier trust scores (<a href="analysis.html#a5">analysis 5</a>).</td></tr>
+      <tr><td><b>Embodied and operational are not linked per AI job</b></td><td>PCFs exclude the use phase; per-prompt figures are fleet averages.</td><td>Green Compute Certificates amortise each chip's passport carbon into every AI job on-chain (<a href="analysis.html#a10">analysis 10</a>).</td></tr>
+      <tr><td><b>Water is the weakest link</b></td><td>No accelerator PCF we found reports water; pledges are company-wide.</td><td>Water is tracked from fab ultrapure water to data-center cooling and power-plant water, weighted by local scarcity (<a href="analysis.html#a13">analysis 13</a>).</td></tr>
+    </table></div>
+    <div class="takeaway">We found no existing product that links a chip's verified manufacturing footprint to the AI jobs it runs, with water, end to end. That is the gap GreenSilicon is built to fill, in support of, not competition with, the SCC, PACT, imec and the Green Software Foundation.</div>
+  </div></section>
+</main>
+<script>
+const CO = [
+  // name, net zero, renewables, product PCF (yes/partial/unverified), water
+  ["TSMC", "2050", "RE100; 60 % by 2030, 100 % by 2040", "unverified", "60 % reclaimed water by 2030; water positive by 2040", "https://pr.tsmc.com/english/news/3067"],
+  ["Samsung (DS)", "2050 (Scope 1+2)", "RE100", "unverified", "No increase in withdrawal at Korean sites", "https://semiconductor.samsung.com/sustainability/environment"],
+  ["Intel", "2040 (Scope 1+2)", "99 % renewable in 2025", "yes", "Net positive water by 2030", "https://www.intel.com/content/www/us/en/support/articles/000097698/services/quality-regulatory-ecology.html"],
+  ["SK hynix", "2050", "RE100 since 2020", "unverified", "Water-saving target +300 % vs 2019", "https://news.skhynix.com/en/caring-for-the-earth-sk-hynixs-green-2030/"],
+  ["Micron", "2050 (Scope 1+2)", "100 % US renewable by end-2025", "unverified", "75 % water conservation by 2030", "https://www.sec.gov/Archives/edgar/data/723125/000072312525000038/mu-20251125.htm"],
+  ["GlobalFoundries", "2050; SBTi −42 % by 2030", "100 % carbon-neutral power by 2050", "unverified", "-", "https://gf.com/gf-press-release/globalfoundries-accelerates-ghg-reductions-commitments-with-near-term-science-based-target/"],
+  ["UMC", "2050 (SBTi-validated)", "RE100; 50 % by 2030", "unverified", "-", "https://www.umc.com/en/News/press_release/Content/esg/20210601"],
+  ["NVIDIA", "unverified", "100 % renewable (controlled ops, FY25)", "yes", "-", "https://images.nvidia.com/aem-dam/Solutions/documents/HGX-H100-PCF-Summary.pdf"],
+  ["AMD", "SBTi −50 % Scope 1+2 by 2030", "100 % renewable by 2030", "partial", "-", "https://www.amd.com/en/corporate/corporate-responsibility/environmental-sustainability.html"],
+  ["Qualcomm", "2040 (Scope 1–3)", "unverified", "unverified", "-", "https://investor.qualcomm.com/news-events/press-releases/news-details/2021/Qualcomm-Announces-Goal-to-Achieve-Net-Zero-Emissions-by-2040-11-01-2021/default.aspx"],
+  ["Applied Materials", "2040", "100 % by 2030 (73 % achieved)", "unverified", "-", "https://www.appliedmaterials.com/us/en/corporate-responsibility/net-zero.html"],
+  ["ASML", "2040 (value chain)", "100 % since 2024", "unverified", "-", "https://www.asml.com/en/company/sustainability/climate-and-energy"],
+  ["Infineon", "Carbon neutral 2030 (Scope 1+2)", "RE100; 100 % green power by Dec 2025", "yes", "-", "https://www.infineon.com/about/company/sustainability/environmental-sustainability-and-climate-protection/product-carbon-footprint-pcf"],
+  ["STMicroelectronics", "Carbon neutral 2027", "100 % renewable by 2027", "yes", "Product water footprint via LCA", "https://www.st.com/content/st_com/en/about/st_approach_to_sustainability/sustainability-priorities/sustainable-technology/eco-design/footprint-of-a-sic-mosfet.html"],
+  ["Texas Instruments", "Committed to set SBTi targets (2024)", "100 % US by 2027, global by 2030", "unverified", "-", "https://www.ti.com/about-ti/newsroom/news-releases/2024/2024-11-08-texas-instruments-commits-to-set-science-based-targets-for-ghg-emissions-reduction.html"],
+];
+const dated = CO.filter((c) => /20\d\d/.test(c[1]) && !/^SBTi|Committed/.test(c[1])).length;
+const pcf = CO.filter((c) => c[3] === "yes").length, partial = CO.filter((c) => c[3] === "partial").length;
+const water = CO.filter((c) => c[4] !== "-").length;
+const stat = (v, l, d) => `<div class="stat"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${d}</div></div>`;
+document.getElementById("counts").innerHTML = [
+  stat(`${dated} / ${CO.length}`, "have a dated net-zero or carbon-neutral target", "the industry is committed"),
+  stat(`${CO.length - CO.filter((c) => c[2] === "unverified").length} / ${CO.length}`, "have a renewable-electricity target", "RE100 or company goal"),
+  stat(`${pcf} / ${CO.length}`, "publish product-level carbon footprints", `+${partial} partial; most are family- or board-level`),
+  stat(`${water} / ${CO.length}`, "have a public water target", "water lags carbon"),
+].join("");
+const pill = (v) => (v === "yes" ? '<span class="pill ok">yes</span>' : v === "partial" ? '<span class="pill mid">partial</span>' : v === "unverified" ? '<span class="pill">unverified</span>' : v);
+document.getElementById("t-co").innerHTML = `<tr><th>Company</th><th>Net-zero / carbon target</th><th>Renewable electricity</th><th>Product-level PCF</th><th>Water</th></tr>` +
+  CO.map((c) => `<tr><td><a href="${c[5]}">${c[0]}</a></td><td>${c[1] === "unverified" ? pill(c[1]) : c[1]}</td><td>${c[2] === "unverified" ? pill(c[2]) : c[2]}</td><td>${pill(c[3])}</td><td>${c[4]}</td></tr>`).join("");
+const A = window.GS.accelerator.estimate.per_unit;
+document.getElementById("nx7").textContent = F.carbon(A.carbon_g);
+document.getElementById("hbm").textContent = F.pct(A.breakdown_g.memory / A.carbon_g);
+</script>
+</body>
+</html>

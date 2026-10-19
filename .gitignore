@@ -1,0 +1,16 @@
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.logs/
+.env
+frontend/dist/
+contracts/artifacts/
+contracts/cache/
+contracts/typechain-types/
+contracts/coverage/
+backend/data/
+shared/deployment.json
+.DS_Store
+demo/video/out/

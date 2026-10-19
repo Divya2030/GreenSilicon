@@ -1,0 +1,17 @@
+Mesa Foundry - Lot Sustainability Summary
+=========================================
+
+Supplier: Mesa Foundry Inc.
+Facility: Fab 3, Chandler
+Location: Arizona, USA
+Stage: Wafer Fab
+Reporting period: Lot M7-0912, Sep 2026
+Process node: 7nm
+Good dies shipped: 1,000
+Electricity attributed to lot: 3.24 MWh
+Renewable electricity share: 70 %
+Abatement efficiency: 99.9 %
+Total product carbon footprint: 698 kg CO2e
+Certifications: Corporate net-zero commitment
+
+Our facility is committed to sustainability leadership. Figures reflect our 2030 renewable roadmap.

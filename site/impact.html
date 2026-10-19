@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GreenSilicon Impact</title>
+<meta name="description" content="What GreenSilicon's levers mean at industry scale: interactive, assumption-transparent impact calculators and alignment with the UN SDGs." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='20' rx='4' fill='%23059669'/%3E%3Cpath d='M12 19c3 0 6-2 8-7-5 .6-9 3-8 7z' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+<style>
+  .calc { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 860px) { .calc { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+  label.sl { display: block; margin-bottom: 12px; font-size: 14px; color: var(--text-2); }
+  label.sl span { float: right; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
+  input[type=range] { width: 100%; accent-color: var(--brand); }
+  .formula { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--muted); background: var(--surface-2); border-radius: 8px; padding: 10px 12px; margin-top: 10px; overflow-x: auto; }
+</style>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="kicker">Impact</div>
+      <h1>What these levers mean at industry scale</h1>
+      <p>The prototype measures savings on one supply chain. These calculators scale them up, with every assumption visible and adjustable, so you can judge the potential for yourself rather than take a headline number on trust.</p>
+    </div>
+  </div>
+
+  <section><div class="wrap">
+    <div class="kicker">Calculator 1 · Data-center scheduling</div>
+    <h2>Shift flexible AI work to cleaner sites and hours</h2>
+    <div class="calc">
+      <div class="card">
+        <label class="sl">Accelerators in the fleet <span id="v-fleet"></span><input type="range" id="fleet" min="10000" max="2000000" step="10000" value="100000" /></label>
+        <label class="sl">Share of work that is flexible (training, batch) <span id="v-flex"></span><input type="range" id="flex" min="0.05" max="0.6" step="0.05" value="0.25" /></label>
+        <label class="sl">CO₂e reduction achieved on shifted work <span id="v-red"></span><input type="range" id="red" min="0.1" max="0.9" step="0.05" value="0.4" /></label>
+        <p class="small muted">The prototype achieved −90 % for one job moved from Phoenix to Stockholm; the default here (40 %) is deliberately conservative because clean capacity is limited.</p>
+      </div>
+      <div class="card">
+        <div class="grid g2" id="o1"></div>
+        <div class="formula" id="f1"></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Calculator 2 · Energy per AI question</div>
+    <h2>Apply the inference levers to everyday AI use</h2>
+    <div class="calc">
+      <div class="card">
+        <label class="sl">AI questions per day <span id="v-q"></span><input type="range" id="q" min="10000000" max="5000000000" step="10000000" value="1000000000" /></label>
+        <label class="sl">Energy reduction from the levers <span id="v-lev"></span><input type="range" id="lev" min="0.1" max="0.9" step="0.01" /></label>
+        <p class="small muted">Default = the prototype's combined levers (cache, routing, speculative decoding, quantization, concise answers). Baseline 0.3 Wh/question (Epoch AI). US-average data center: PUE 1.17, WUE 0.55 L/kWh, grid water 3.14 L/kWh (Li et al.), grid 393 g/kWh (Ember 2023).</p>
+      </div>
+      <div class="card">
+        <div class="grid g2" id="o2"></div>
+        <div class="formula" id="f2"></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Calculator 3 · Design decisions</div>
+    <h2>One packaging choice, multiplied by production volume</h2>
+    <div class="calc">
+      <div class="card">
+        <label class="sl">AI accelerators produced per year <span id="v-vol"></span><input type="range" id="vol" min="100000" max="10000000" step="100000" value="2000000" /></label>
+        <p class="small muted">Replacing the 1,200 mm² silicon interposer with an organic RDL interposer, as computed by the Design Lab for the NX-7 (3D-Carbon packaging data).</p>
+      </div>
+      <div class="card">
+        <div class="grid g2" id="o3"></div>
+        <div class="formula" id="f3"></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Beyond the numbers</div>
+    <h2>Who benefits, and how it scales</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Hardware buyers</h3><p>Cloud providers and OEMs get verified, per-lot Scope 3 data with a data-quality grade and carbon at risk, instead of averages.</p></div>
+      <div class="card"><h3>Honest suppliers</h3><p>Fabs with genuinely clean power and good abatement can prove it, with metered evidence and an on-chain trust score, without revealing trade secrets.</p></div>
+      <div class="card"><h3>AI teams</h3><p>Every training run and inference service gets a certificate with energy, water and its share of hardware carbon, plus a scheduler that cuts both.</p></div>
+      <div class="card"><h3>Communities and regulators</h3><p>Water use is weighted by local scarcity, and anyone can verify claims directly from the blockchain.</p></div>
+      <div class="card"><h3>Recyclers</h3><p>Recovered metals are rewarded with CIRC tokens, linking end of life back to the chip's passport.</p></div>
+      <div class="card"><h3>Adoption path</h3><p>No new reporting burden: suppliers upload existing reports. Lot-level passports cost a fraction of a cent on an L2, and passports nest from chiplet to server.</p></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Global goals</div>
+    <h2>Aligned with the UN Sustainable Development Goals and COP31</h2>
+    <div class="grid g4">
+      <div class="card tight"><h3>SDG 6 · Clean water</h3><p>Scarcity-weighted water accounting, seawater and reclaimed-water cooling options.</p></div>
+      <div class="card tight"><h3>SDG 7 · Clean energy</h3><p>Renewable claims must be certified; jobs move to clean grids and hours.</p></div>
+      <div class="card tight"><h3>SDG 9 · Industry & innovation</h3><p>Carbon-aware chip design and transparent semiconductor supply chains.</p></div>
+      <div class="card tight"><h3>SDG 12 · Responsible production</h3><p>Product passports, recycling rewards and compute reuse.</p></div>
+      <div class="card tight"><h3>SDG 13 · Climate action</h3><p>Verified, non-double-counted emissions and offsets.</p></div>
+      <div class="card tight"><h3>SDG 17 · Partnerships</h3><p>Open source, built to complement SEMI SCC, PACT, imec and the Green Software Foundation.</p></div>
+      <div class="card tight" style="grid-column: span 2"><h3>UN COP31</h3><p>The hackathon's goal: trustworthy, decentralised climate-data infrastructure that organisations, policymakers and communities can act on.</p></div>
+    </div>
+  </div></section>
+</main>
+<script>
+const D = window.GS;
+const st = (l, v, d) => `<div class="stat"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${d}</div></div>`;
+const KW = D.compute.assumptions.it_kw_per_accelerator, UTIL = 0.7, PUE = 1.2, CI = 392.8; // g/kWh, USA Ember 2023
+const $ = (id) => document.getElementById(id);
+const t = (g) => g / 1e6; // g -> t
+
+function calc1() {
+  const fleet = +$("fleet").value, flex = +$("flex").value, red = +$("red").value;
+  $("v-fleet").textContent = F.num(fleet); $("v-flex").textContent = F.pct(flex); $("v-red").textContent = F.pct(red);
+  const mwh = fleet * KW * 8760 * UTIL * PUE / 1000;
+  const saved = mwh * 1000 * CI * flex * red;
+  $("o1").innerHTML = st("Fleet electricity", `${F.num(mwh / 1e6, 2)} TWh/yr`, "incl. cooling") + st("CO₂e avoided", `${F.num(t(saved) / 1000, 1)} kt/yr`, `${F.num(t(saved))} t`) +
+    st("Cars off the road, equivalent", F.num(saved / 4.6e6), "at 4.6 t CO₂e per car per year (US EPA)") + st("Share of fleet emissions", F.pct(flex * red), "flexible share × reduction");
+  $("f1").textContent = `saved = fleet × ${KW.toFixed(2)} kW × 8760 h × ${UTIL} util × PUE ${PUE} × ${CI} g/kWh × flexible × reduction`;
+}
+
+const LEV0 = 1 - D.inference.multiplier;
+$("lev").value = LEV0.toFixed(2);
+function calc2() {
+  const q = +$("q").value, lev = +$("lev").value;
+  $("v-q").textContent = F.num(q / 1e6) + " M"; $("v-lev").textContent = F.pct(lev);
+  const itkwh = (q * 0.3 * lev) / 1000 * 365; // IT kWh saved per year
+  const fac = itkwh * 1.17;
+  const water = itkwh * 0.55 + fac * 3.142; // L
+  $("o2").innerHTML = st("Electricity saved", `${F.num(fac / 1e6, 1)} GWh/yr`, "incl. cooling (PUE 1.17)") + st("CO₂e avoided", `${F.num(fac * CI / 1e9, 1)} kt/yr`, "US average grid") +
+    st("Water saved", `${F.num(water / 1000)} m³/yr`, "on-site + power-plant water") + st("Homes' electricity, equivalent", F.num(fac / 10500), "at ~10,500 kWh per US home per year (EIA)");
+  $("f2").textContent = `saved = questions/day × 0.3 Wh × reduction × 365 × PUE 1.17;  water = IT kWh × 0.55 + facility kWh × 3.142`;
+}
+
+const PER = D.accelerator.estimate.per_unit.carbon_g - D.accelerator.rdl_per_unit_g;
+function calc3() {
+  const vol = +$("vol").value;
+  $("v-vol").textContent = F.num(vol);
+  const saved = vol * PER;
+  $("o3").innerHTML = st("Saved per accelerator", F.carbon(PER), "silicon → organic RDL interposer") + st("Saved per year", `${F.num(t(saved) / 1000, 1)} kt CO₂e`, `${F.num(t(saved))} t`) +
+    st("Cars off the road, equivalent", F.num(saved / 4.6e6), "US EPA 4.6 t/yr") + st("Reduction per unit", F.pct(PER / D.accelerator.estimate.per_unit.carbon_g), "embodied CO₂e");
+  $("f3").textContent = `saved = volume × (${F.carbon(D.accelerator.estimate.per_unit.carbon_g)} − ${F.carbon(D.accelerator.rdl_per_unit_g)}) per unit`;
+}
+["fleet", "flex", "red"].forEach((id) => $(id).addEventListener("input", calc1));
+["q", "lev"].forEach((id) => $(id).addEventListener("input", calc2));
+$("vol").addEventListener("input", calc3);
+calc1(); calc2(); calc3();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+html,body{margin:0;height:100%;}
+body{display:grid;place-items:center;background:radial-gradient(1200px 600px at 80% -10%,#10b98155,transparent 60%),linear-gradient(160deg,#022c22,#064e3b);color:#eafff4;font-family:Inter,system-ui,sans-serif;overflow:hidden}
+.grid{position:fixed;inset:0;opacity:.12;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(180deg,transparent,#000 40%,transparent)}
+.c{position:relative;text-align:center;max-width:1400px;padding:0 60px;margin-top:-120px}
+.logo{display:inline-flex;align-items:center;gap:18px;font-size:38px;font-weight:800;letter-spacing:-.02em}
+.mark{width:72px;height:72px;border-radius:18px;background:#10b981;display:grid;place-items:center}
+h1{font-size:64px;line-height:1.05;letter-spacing:-.035em;margin:34px 0 22px}
+p{font-size:30px;color:#c8f1dd;margin:0}
+.tags{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.tags span{font-size:20px;font-weight:600;padding:9px 18px;border-radius:999px;background:#ffffff14;border:1px solid #ffffff2a;color:#a7f3d0}

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>For Judges</title>
+<meta name="description" content="A five-minute evaluation guide: track alignment, submission requirements, judging criteria mapped to evidence, and how to run GreenSilicon." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='20' rx='4' fill='%23059669'/%3E%3Cpath d='M12 19c3 0 6-2 8-7-5 .6-9 3-8 7z' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="kicker">For judges</div>
+      <h1>A five-minute evaluation guide</h1>
+      <p>Where to find the evidence for each judging criterion, how GreenSilicon meets the submission requirements, and how to run it yourself.</p>
+      <div class="btns" style="margin-top:20px"><a class="btn btn-outline" data-link="video" href="#">▶ Demo video</a><a class="btn btn-outline" data-link="repo" href="#">Source code</a><a class="btn btn-outline" data-link="demo" href="#">Live prototype</a><a class="btn btn-outline" data-link="devpost" href="#">Devpost</a></div>
+    </div>
+  </div>
+
+  <section><div class="wrap">
+    <div class="kicker">Team</div>
+    <h2>Divya Kohli</h2>
+    <p class="sub" style="margin-bottom:0">Third-year PhD student, University of California, Santa Cruz (UCSC), CA, USA. Background in chip design. Sole developer of GreenSilicon: smart contracts, carbon and data-center models, AI auditor, web app, website and demo. <a href="story.html">Why I built this →</a></p>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Track alignment</div>
+    <h2>Sustainable Supply Chains, with Carbon Markets and Climate Data built in</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Track "Build" item</th><th>Where GreenSilicon delivers it</th></tr>
+      <tr><td>Product lifecycle tracking</td><td>Lot passports from design to recycling, plus the data-center use phase (<a href="analysis.html#a8">analysis 8</a>)</td></tr>
+      <tr><td>Digital product passports</td><td>ERC-721 per production lot, composable chiplet → package; W3C VC-shaped DPP export</td></tr>
+      <tr><td>Recycling traceability</td><td>End-of-life records linked to the passport, recovered-material evidence</td></tr>
+      <tr><td>Circular-economy incentives</td><td>CIRC token minted per kg recovered; compute reuse credited on-chain (<a href="analysis.html#a11">analysis 11</a>)</td></tr>
+      <tr><td><i>Also:</i> carbon credit verification, no double counting</td><td>Unique serials, burn on retire, offsets capped at the footprint (<a href="analysis.html#a14">analysis 14</a>)</td></tr>
+      <tr><td><i>Also:</i> IoT monitoring, climate-data verification</td><td>Device-signed fab meters anchored on-chain (<a href="analysis.html#a6">analysis 6</a>)</td></tr>
+    </table></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Judging criteria → evidence</div>
+    <h2>Where to look for each criterion</h2>
+    <div class="grid g2">
+      <div class="card"><h3>Climate impact</h3><p>Greenwashing caught on-chain; −90 % CO₂e for a rescheduled training run; −83 % energy per AI question; an interposer lever worth 31 % per accelerator; water accounting from fab to power plant. <a href="impact.html">Impact calculators →</a></p></div>
+      <div class="card"><h3>Innovation & creativity</h3><p>The first end-to-end link we found between a chip's verified manufacturing footprint and the AI jobs it runs, with water. Also: device-signed fab telemetry, on-chain compute reuse, and an LLM auditor that cannot overrule physics. <a href="landscape.html">Landscape & gap →</a></p></div>
+      <div class="card"><h3>Technical execution</h3><p>Five contracts, 57 automated tests, 6 browser flows including attacks, Slither with no unresolved findings, real peer-reviewed data, Claude with structured outputs and caching. <a href="technology.html">Technology →</a></p></div>
+      <div class="card"><h3>Practical usefulness</h3><p>Suppliers upload existing reports; relayed signatures need no gas; a Scope 3 Category 1 report buyers can file; a scheduler and refresh calculator data-center teams can act on; open source. <a href="analysis.html#a14">Buyer decisions →</a></p></div>
+      <div class="card" style="grid-column:1/-1"><h3>Presentation & communication</h3><p>Problem, solution and impact are explained in the demo video, on this site and in the repo, with every chart generated from the working prototype. <a href="index.html">Overview →</a></p></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Submission requirements</div>
+    <h2>Checklist</h2>
+    <div class="card">
+      <ul class="check">
+        <li><b>Track alignment</b>: Sustainable Supply Chains, stated in the README, submission text and on this page.</li>
+        <li><b>Project description</b>: problem, solution, target users, scalability and adoption (<a href="story.html">story</a>, <a href="impact.html">impact</a>).</li>
+        <li><b>Working prototype</b>: one-command local stack, seeded with a realistic scenario.</li>
+        <li><b>Code repository with documentation</b>: README, architecture, security review, demo script, MIT licence.</li>
+        <li id="video-item" class="todo"><b>Demo video (3–5 min)</b>: link above once published.</li>
+        <li class="todo"><b>Submitted on Devpost before Oct 25, 2026, 7:00 am PDT.</b></li>
+      </ul>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Run it yourself</div>
+    <h2>Three commands</h2>
+    <div class="card">
+      <pre class="mono" style="margin:0;white-space:pre-wrap">git clone <span id="repo-url">https://github.com/Divya2030/GreenSilicon</span>
+cd GreenSilicon
+./scripts/dev.sh --prod   # local chain + deploy + seed + API + UI at http://localhost:8000</pre>
+      <p class="small muted">Requires Node 20+ and Python 3.12+. Works without an AI key (offline auditor); set ANTHROPIC_API_KEY to enable Claude. Contract tests: <code>cd contracts && npx hardhat test</code> · Backend tests: <code>cd backend && .venv/bin/python -m pytest</code></p>
+    </div>
+    <div class="grid g3" style="margin-top:16px">
+      <div class="card tight"><h3>Try in 1 minute</h3><p>Supplier Portal → sample "unverified fab disclosure injection" → Sign & anchor → watch it get <b>Rejected</b>.</p></div>
+      <div class="card tight"><h3>Try in 2 minutes</h3><p>AI Compute → Find greenest slot → Run & mint, then Check for a reusable result → Reuse (0 kWh).</p></div>
+      <div class="card tight"><h3>Try in 3 minutes</h3><p>Public Verifier → passport #4 → drop a sample document to prove it is the one anchored on-chain.</p></div>
+    </div>
+  </div></section>
+</main>
+<script>
+  if (SITE.video) { const li = document.getElementById("video-item"); li.classList.remove("todo"); }
+  if (SITE.repo) document.getElementById("repo-url").textContent = SITE.repo;
+</script>
+</body>
+</html>

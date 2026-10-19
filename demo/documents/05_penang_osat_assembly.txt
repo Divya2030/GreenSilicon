@@ -1,0 +1,13 @@
+Penang Advanced Packaging - Assembly Lot Report
+===============================================
+
+Supplier: Penang Advanced Packaging Sdn. Bhd.
+Facility: Plant 2, Bayan Lepas
+Location: Penang, Malaysia
+Stage: Assembly
+Reporting period: Lot PAP-NX7-1001
+Units: 1,000
+Process: 2.5D chip-on-wafer-on-substrate, 1,200 mm2 silicon interposer, FCBGA 60x60 mm
+Electricity: 48.7 MWh
+Total: 45,834 kg CO2e
+Certifications: ISO 14064-1; RBA Validated Audit Process (Platinum)

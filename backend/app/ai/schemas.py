@@ -51,3 +51,45 @@ class ClaudeAudit(BaseModel):
 class CopilotAnswer(BaseModel):
     answer: str
     cited_fields: list[str] = Field(default_factory=list)
+
+
+# Structured-output schema used for extraction. The API limits schema
+# complexity (each nullable field adds a union), so every field is required
+# and -1 / "none" mean "not stated"; to_disclosure() maps them back to None.
+NUMERIC = ["units", "wafers_processed", "electricity_kwh", "renewable_share", "scope1_process_gas_kgco2e", "abatement_rate",
+           "water_l", "die_yield", "distance_km", "shipment_mass_kg", "recovered_material_g"]
+
+
+class ExtractedDisclosure(BaseModel):
+    supplier_name: str
+    facility: str
+    stage: StageName
+    reporting_period: str
+    location: str = Field(description="Grid region: taiwan, south_korea, japan, usa, europe, singapore, india, australia, brazil, iceland or world")
+    process_node: str = Field(description="e.g. '5nm', or 'none'")
+    claimed_carbon_kgco2e: float = Field(description="Supplier's own total for this stage, kg CO2e")
+    units: float = Field(description="-1 if not stated")
+    wafers_processed: float = Field(description="-1 if not stated")
+    electricity_kwh: float = Field(description="kWh; -1 if not stated")
+    renewable_share: float = Field(description="0..1; -1 if not stated")
+    scope1_process_gas_kgco2e: float = Field(description="kg CO2e after abatement; -1 if not stated")
+    abatement_rate: float = Field(description="0..1; -1 if not stated")
+    water_l: float = Field(description="litres; -1 if not stated")
+    die_yield: float = Field(description="0..1; -1 if not stated")
+    transport_mode: Literal["air", "sea", "road", "rail", "none"]
+    distance_km: float = Field(description="-1 if not stated")
+    shipment_mass_kg: float = Field(description="-1 if not stated")
+    recovered_material_g: float = Field(description="-1 if not stated")
+    certifications: list[str]
+    evidence_quotes: list[str]
+    missing_or_unclear: list[str]
+
+    def to_disclosure(self) -> StageDisclosure:
+        d = self.model_dump()
+        for k in NUMERIC:
+            d[k] = None if d[k] is None or d[k] < 0 else d[k]
+        for k in ("units", "wafers_processed"):
+            d[k] = int(d[k]) if d[k] is not None else None
+        d["process_node"] = None if d["process_node"].strip().lower() in ("none", "", "n/a") else d["process_node"]
+        d["transport_mode"] = None if d["transport_mode"] == "none" else d["transport_mode"]
+        return StageDisclosure(**d)

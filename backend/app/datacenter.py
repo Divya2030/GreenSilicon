@@ -30,7 +30,6 @@ from eth_account import Account
 from eth_utils import keccak
 
 from .chain import chain
-from .config import HARDHAT_MNEMONIC
 from .store import store
 
 ACCEL_BOARD_KW = 0.75      # NX-7 board power at TDP (assumption, H100-SXM class)
@@ -74,7 +73,7 @@ CUSTOMERS = {"lumen": ("Lumen AI Labs", 30), "aurora": ("Aurora Silicon ML team"
 
 
 def customer_address(key: str) -> str:
-    return Account.from_mnemonic(HARDHAT_MNEMONIC, account_path=f"m/44'/60'/0'/0/{CUSTOMERS[key][1]}").address
+    return Account.from_mnemonic(chain.mnemonic, account_path=f"m/44'/60'/0'/0/{CUSTOMERS[key][1]}").address
 
 
 def _db() -> dict:

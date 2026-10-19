@@ -8,8 +8,22 @@ ROOT = Path(__file__).resolve().parents[2]
 HARDHAT_MNEMONIC = "test test test test test test test test test test test junk"
 
 
+def _load_env() -> None:
+    """Read ../.env (KEY=value) without overriding existing environment variables."""
+    f = ROOT / ".env"
+    if f.exists():
+        for line in f.read_text().splitlines():
+            if "=" in line and not line.lstrip().startswith("#"):
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip())
+
+
+_load_env()
+
+
 class Settings:
     rpc_url = os.getenv("RPC_URL", "http://127.0.0.1:8545")
+    testnet_mnemonic = os.getenv("TESTNET_MNEMONIC", "")
     deployment_file = Path(os.getenv("DEPLOYMENT_FILE", ROOT / "shared" / "deployment.json"))
     data_dir = Path(os.getenv("DATA_DIR", ROOT / "backend" / "data"))
     claude_model = os.getenv("CLAUDE_MODEL", "claude-opus-5")

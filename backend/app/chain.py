@@ -68,6 +68,15 @@ class Chain:
     def actors(self) -> dict:
         return self.deployment["actors"]
 
+    @property
+    def mnemonic(self) -> str:
+        """Public test phrase on the local chain; the private TESTNET_MNEMONIC anywhere else."""
+        if self.deployment["chainId"] == 31337:
+            return HARDHAT_MNEMONIC
+        if not settings.testnet_mnemonic:
+            raise RuntimeError("TESTNET_MNEMONIC is required on public networks")
+        return settings.testnet_mnemonic
+
     @cached_property
     def keys(self) -> dict:
         """Private keys per actor: env ACTOR_KEY_<NAME>, else the Hardhat dev mnemonic on a local chain."""
@@ -75,8 +84,8 @@ class Chain:
         out = {}
         for name, a in self.actors.items():
             k = os.getenv(f"ACTOR_KEY_{name.upper()}") or os.getenv("DEPLOYER_PRIVATE_KEY")
-            if not k and local:
-                k = Account.from_mnemonic(HARDHAT_MNEMONIC, account_path=f"m/44'/60'/0'/0/{a['index']}").key.hex()
+            if not k and (local or settings.testnet_mnemonic):
+                k = Account.from_mnemonic(self.mnemonic, account_path=f"m/44'/60'/0'/0/{a['index']}").key.hex()
             if k:
                 acct = Account.from_key(k)
                 if acct.address.lower() == a["address"].lower():

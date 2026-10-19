@@ -28,6 +28,12 @@ async function main() {
   const deployer = signers[0];
   const net = await ethers.provider.getNetwork();
   console.log(`Deploying to ${hre.network.name} (chainId ${net.chainId}) from ${deployer.address}`);
+  const local = Number(net.chainId) === 31337;
+  if (!local) {
+    const bal = await ethers.provider.getBalance(deployer.address);
+    console.log(`Deployer balance: ${ethers.formatEther(bal)} ETH`);
+    if (bal === 0n) throw new Error(`Fund ${deployer.address} from a faucet first`);
+  }
 
   const circ = await ethers.deployContract("CircularityToken");
   await circ.waitForDeployment();
@@ -75,15 +81,33 @@ async function main() {
     console.log("In-process network: deployment file not written (use --network localhost)");
     return;
   }
+  // Public networks: every actor sends some transactions itself, so top each one up with gas money.
+  if (!local) {
+    const topUp = ethers.parseEther(process.env.ACTOR_GAS_ETH || "0.0015");
+    for (const a of Object.values(actors)) {
+      if (a.address.toLowerCase() === deployer.address.toLowerCase()) continue;
+      const bal = await ethers.provider.getBalance(a.address);
+      if (bal < topUp / 2n) {
+        await (await deployer.sendTransaction({ to: a.address, value: topUp - bal })).wait();
+        console.log(`funded ${a.name}: ${a.address}`);
+      }
+    }
+    out.explorer = { 84532: "https://base-sepolia.blockscout.com", 11155111: "https://sepolia.etherscan.io", 80002: "https://amoy.polygonscan.com" }[Number(net.chainId)] || null;
+    out.deployTxs = {
+      GreenSiliconPassport: passport.deploymentTransaction()?.hash, CarbonCreditRegistry: registry.deploymentTransaction()?.hash,
+      CircularityToken: circ.deploymentTransaction()?.hash, TelemetryRegistry: telemetry.deploymentTransaction()?.hash, ComputeLedger: compute.deploymentTransaction()?.hash,
+    };
+  }
   const dir = path.join(__dirname, "..", "..", "shared");
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, "deployment.json"), JSON.stringify(out, null, 2));
+  const file = local ? "deployment.json" : `deployment.${hre.network.name}.json`;
+  fs.writeFileSync(path.join(dir, file), JSON.stringify(out, null, 2));
   console.log("GreenSiliconPassport        ", out.contracts.GreenSiliconPassport.address);
   console.log("CarbonCreditRegistry", out.contracts.CarbonCreditRegistry.address);
   console.log("CircularityToken    ", out.contracts.CircularityToken.address);
   console.log("TelemetryRegistry   ", out.contracts.TelemetryRegistry.address);
   console.log("ComputeLedger       ", out.contracts.ComputeLedger.address);
-  console.log("Wrote shared/deployment.json");
+  console.log(`Wrote shared/${file}`);
 }
 
 main().catch((e) => {

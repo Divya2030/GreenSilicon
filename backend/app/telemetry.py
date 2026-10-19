@@ -26,7 +26,6 @@ from eth_account import Account
 
 from . import merkle
 from .chain import chain
-from .config import HARDHAT_MNEMONIC
 from .store import store
 
 log = logging.getLogger(__name__)
@@ -50,7 +49,7 @@ DEVICES = [
 
 
 def device_account(i: int):
-    return Account.from_mnemonic(HARDHAT_MNEMONIC, account_path=f"m/44'/60'/0'/0/{20 + i}")
+    return Account.from_mnemonic(chain.mnemonic, account_path=f"m/44'/60'/0'/0/{20 + i}")
 
 
 def _db() -> dict:

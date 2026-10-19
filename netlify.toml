@@ -1,4 +1,0 @@
-# Netlify: deploy the static portfolio site (no build step)
-[build]
-  publish = "site"
-  command = ""

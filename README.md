@@ -1,5 +1,9 @@
 # GreenSilicon
 
+[![GreenSilicon demo video](demo/brand/youtube-thumbnail.png)](https://youtu.be/px6QrkfxXDE)
+
+**▶ [Demo video (4:36)](https://youtu.be/px6QrkfxXDE)** · **[Website & full analysis](https://divya2030.github.io/GreenSilicon/)**
+
 **Blockchain + AI digital product passports for semiconductors, from fab to inference: verifiable embodied carbon, data-center energy and water, and circularity for every chip lot.**
 
 IEEE ClimateChain Global Hackathon 2026 · **Primary track: Sustainable Supply Chains** (product lifecycle tracking, digital product passports, recycling traceability, circular-economy incentives). **Also addresses:** Carbon Markets & Emissions Transparency (double-counting-proof credits, real-time emissions tracking), Renewable Energy & Energy Trading (renewable certificate checks, clean-energy-aware AI scheduling) and Climate Data & Environmental Monitoring (IoT fab meters, verifiable climate data).

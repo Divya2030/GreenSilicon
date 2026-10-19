@@ -3,7 +3,7 @@
 // Edit these links once the repo, video and demo are live.
 window.SITE = {
   repo: "https://github.com/Divya2030/GreenSilicon",
-  video: "",      // demo video URL (YouTube/Vimeo)
+  video: "https://youtu.be/px6QrkfxXDE",
   demo: "",       // hosted prototype URL, if any
   site: "https://divya2030.github.io/GreenSilicon/",
   devpost: "",    // Devpost submission URL
